@@ -4,6 +4,7 @@
  */
 package br.dev.bina.garage.service;
 
+import br.dev.bina.garage.DTO.VeiculoMinDTO;
 import br.dev.bina.garage.entities.Veiculo;
 import br.dev.bina.garage.repositories.GarageRepository;
 import java.util.List;
@@ -29,5 +30,14 @@ public class GarageService {
     public List<Veiculo> findByCor(String cor) {
         List<Veiculo> result = garageRepository.findByCorIgnoreCase(cor);
         return result;
+    }
+    
+    public List<VeiculoMinDTO> findByModelo(String modelo) {
+        List<Veiculo> resultGarage = garageRepository.findByModeloIgnoreCase(modelo);
+        
+        List<VeiculoMinDTO> resultDTO = resultGarage.stream()
+                .map(x -> new VeiculoMinDTO(x)).toList();
+        
+        return resultDTO;
     }
 }

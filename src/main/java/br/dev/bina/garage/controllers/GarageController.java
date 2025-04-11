@@ -1,6 +1,7 @@
 package br.dev.bina.garage.controllers;
 
 
+import br.dev.bina.garage.DTO.VeiculoMinDTO;
 import br.dev.bina.garage.entities.Veiculo;
 import br.dev.bina.garage.service.GarageService;
 import java.util.List;
@@ -30,6 +31,22 @@ public class GarageController {
     public ResponseEntity<List<Veiculo>> findByCorIgnoreCase(@PathVariable String corName) {
         List<Veiculo> result = garageService.findByCor(corName);
         
+        if (result.isEmpty()) {
+            //a lista está vazia...
+            //notFound devolve 404
+            return ResponseEntity.notFound().build();
+            
+        } else {
+            //uhullll tem dados
+            //ok devolve 200
+            return ResponseEntity.ok(result);
+        }
+    }
+    
+    @GetMapping("/modelo/{modeloName}")
+    public ResponseEntity<List<VeiculoMinDTO>> findByModeloIgnoreCase(@PathVariable String modeloName) {
+        
+        List<VeiculoMinDTO> result = garageService.findByModelo(modeloName);  
         if (result.isEmpty()) {
             //a lista está vazia...
             //notFound devolve 404
