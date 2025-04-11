@@ -25,4 +25,9 @@ public class GarageService {
         return result;
     }
      
+        
+    public List<Veiculo> findByCor(String cor) {
+        List<Veiculo> result = garageRepository.findByCorIgnoreCase(cor);
+        return result;
+    }
 }
