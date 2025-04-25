@@ -26,7 +26,7 @@ public class Veiculo {
     private String marca;
     private String modelo;
     private String cor;
-    private String ano;
+    private int ano;
     private double km;
 
     @Column(name = "linkimagem")
@@ -40,7 +40,7 @@ public class Veiculo {
     public Veiculo() {
     }
 
-    public Veiculo(long id, String nomeVeiculo, String marca, String modelo, String cor, String ano, double km, String linkImagem, String descricaoCompleta, String avarias) {
+    public Veiculo(long id, String nomeVeiculo, String marca, String modelo, String cor, int ano, double km, String linkImagem, String descricaoCompleta, String avarias) {
         this.id = id;
         this.marca = marca;
         this.modelo = modelo;
@@ -84,13 +84,7 @@ public class Veiculo {
         this.cor = cor;
     }
 
-    public String getAno() {
-        return ano;
-    }
-
-    public void setAno(String ano) {
-        this.ano = ano;
-    }
+   
 
     public double getKm() {
         return km;
@@ -122,6 +116,14 @@ public class Veiculo {
 
     public void setAvarias(String avarias) {
         this.avarias = avarias;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
     }
     
     

@@ -11,7 +11,7 @@ public class VeiculoMinDTO {
     private String marca;
     private String modelo;
     private String cor;
-    private String ano;
+    private int ano;
     private double km;
     private String linkImagem;
 
@@ -60,13 +60,15 @@ public class VeiculoMinDTO {
         this.cor = cor;
     }
 
-    public String getAno() {
+    public int getAno() {
         return ano;
     }
 
-    public void setAno(String ano) {
+    public void setAno(int ano) {
         this.ano = ano;
     }
+
+  
 
     public double getKm() {
         return km;
